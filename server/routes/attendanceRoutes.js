@@ -1,9 +1,4 @@
-// ============================================================
-// routes/attendanceRoutes.js — ATTENDANCE URLs
-// Mark: Teacher only
-// View/Report: Both Admin and Teacher (filtered by role)
-// ============================================================
-
+ 
 const express = require("express");
 const router = express.Router();
 const {

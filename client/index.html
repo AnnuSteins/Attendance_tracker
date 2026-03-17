@@ -5,33 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Student Attendance Tracker</title>
 
-  <!--
-    ============================================================
-    index.html — ONLY HTML STRUCTURE LIVES HERE
-    This file just describes WHAT is on the page.
-    It does NOT style anything (that is style.css job).
-    It does NOT do any logic (that is app.js job).
 
-    Think of HTML as the SKELETON of a human body.
-    CSS is the SKIN and CLOTHES (how it looks).
-    JS is the BRAIN and MUSCLES (how it behaves).
-    ============================================================
-
-    HOW FILES ARE CONNECTED:
-    Line below loads the CSS file into this HTML page.
-    Without this line, the page would have zero styling.
-  -->
+  
   <link rel="stylesheet" href="style.css" />
 
 </head>
 <body>
 
-  <!-- ============================================================
-    LOGIN PAGE
-    This entire div is the login screen.
-    It is visible by default when the page loads.
-    JavaScript will HIDE it after successful login.
-  ============================================================ -->
+ 
   <div id="login-page">
     <div class="login-box">
 
@@ -55,10 +36,7 @@
         <input type="password" id="login-password" placeholder="••••••••" />
       </div>
 
-      <!--
-        onclick="handleLogin()" → when clicked, run the handleLogin()
-        function that is defined in app.js
-      -->
+      
       <button class="btn btn-primary" onclick="handleLogin()">Sign In</button>
 
     </div>
@@ -76,10 +54,7 @@
     <nav>
       <div class="brand">📋 Attendance Tracker</div>
       <div class="nav-right">
-        <!--
-          id="nav-user-info" → JavaScript will write the
-          logged-in user's name here after login
-        -->
+        
         <span class="user-info" id="nav-user-info"></span>
         <button onclick="handleLogout()">Logout</button>
       </div>
@@ -88,27 +63,20 @@
     <!-- ---- APP LAYOUT (sidebar + main content side by side) ---- -->
     <div class="app-layout">
 
-      <!-- SIDEBAR
-        id="sidebar" → JavaScript will inject menu items here
-        based on whether the user is Admin or Teacher
-      -->
+   
       <aside id="sidebar">
-        <!-- Menu items are injected by JavaScript -->
+        
       </aside>
 
       <!-- MAIN CONTENT AREA
         All "pages" live here. Only one is visible at a time.
-        JavaScript controls which one is shown.
+      
       -->
       <main>
 
         <!-- ---- DASHBOARD PAGE ---- -->
-        <!--
-          class="page" → all pages have this class
-          id="page-dashboard" → JavaScript uses this ID to show/hide
-          By default, all .page elements are hidden (see style.css)
-          JavaScript adds class "active" to show a page
-        -->
+        
+      
         <div class="page" id="page-dashboard">
           <div class="page-header">
             <h2>Dashboard</h2>
@@ -289,9 +257,7 @@
 
   <!-- ============================================================
     TEACHER MODAL (popup form)
-    A modal is a dialog box that appears on top of the page.
-    It is hidden by default (no "open" class).
-    JavaScript adds class "open" to show it.
+   
   ============================================================ -->
   <div class="modal-overlay" id="teacher-modal">
     <div class="modal">
@@ -388,11 +354,7 @@
 
   <!--
     ============================================================
-    LOAD JAVASCRIPT FILE — must be at the BOTTOM of the body
-    Why at the bottom? Because JavaScript needs all the HTML
-    elements to exist before it can find them with getElementById.
-    If you put it at the top, JS runs before HTML is built
-    and getElementById returns null (element not found).
+    LOAD JAVASCRIPT FILE 
     ============================================================
   -->
   <script src="app.js"></script>

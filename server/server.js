@@ -1,9 +1,4 @@
-// ============================================================
-// server.js — THE MAIN FILE THAT STARTS YOUR ENTIRE BACKEND
-// Think of this as the "reception desk" of your application.
-// Every request comes here first, then gets sent to the right room.
-// ============================================================
-
+ 
 // 1. Load secret settings from .env file
 require("dotenv").config();
 

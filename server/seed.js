@@ -38,7 +38,7 @@ const seedAdmin = async () => {
     console.log("🔑 Password: admin123");
     console.log("\n👉 Login with these credentials, then create teachers from the dashboard.");
 
-    process.exit(0); // Exit successfully
+    process.exit(0); 
   } catch (error) {
     console.error("❌ Seed failed:", error.message);
     process.exit(1);

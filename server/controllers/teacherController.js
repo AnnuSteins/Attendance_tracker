@@ -1,19 +1,12 @@
-// ============================================================
-// controllers/teacherController.js — TEACHER MANAGEMENT LOGIC
-// Only Admins can use these routes.
-// CRUD = Create, Read, Update, Delete
-// ============================================================
-
+ 
 const User = require("../models/User");
 const Student = require("../models/Student");
 
-// ---------------------------------------------------------------
-// GET /api/teachers — Get list of ALL teachers
-// ---------------------------------------------------------------
+
 const getAllTeachers = async (req, res) => {
   try {
-    // Find all users where role is "teacher"
-    // .select("-password") hides the password field from results
+    
+   
     const teachers = await User.find({ role: "teacher" }).select("-password");
     res.json(teachers);
   } catch (error) {
@@ -21,9 +14,7 @@ const getAllTeachers = async (req, res) => {
   }
 };
 
-// ---------------------------------------------------------------
-// POST /api/teachers — Create a new teacher account
-// ---------------------------------------------------------------
+
 const createTeacher = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -48,10 +39,7 @@ const createTeacher = async (req, res) => {
   }
 };
 
-// ---------------------------------------------------------------
-// PUT /api/teachers/:id — Update a teacher's name or email
-// :id means the teacher's MongoDB ID is passed in the URL
-// ---------------------------------------------------------------
+
 const updateTeacher = async (req, res) => {
   try {
     const { name, email } = req.body;
@@ -73,9 +61,7 @@ const updateTeacher = async (req, res) => {
   }
 };
 
-// ---------------------------------------------------------------
-// DELETE /api/teachers/:id — Remove a teacher
-// ---------------------------------------------------------------
+
 const deleteTeacher = async (req, res) => {
   try {
     const teacher = await User.findById(req.params.id);

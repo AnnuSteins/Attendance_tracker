@@ -1,9 +1,3 @@
-// ============================================================
-// routes/authRoutes.js — AUTH URL DEFINITIONS
-// Routes just map HTTP method + URL → controller function.
-// Think of routes as a menu in a restaurant.
-// The controller is the kitchen that actually prepares the food.
-// ============================================================
 
 const express = require("express");
 const router = express.Router(); // Create a mini-router

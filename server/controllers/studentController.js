@@ -1,22 +1,13 @@
-// ============================================================
-// controllers/studentController.js — STUDENT MANAGEMENT LOGIC
-// Admin can manage all students.
-// Teacher can only view their assigned students.
-// ============================================================
-
+ 
 const Student = require("../models/Student");
 
-// ---------------------------------------------------------------
-// GET /api/students — Get students
-// Admin gets ALL students; Teacher gets only THEIR students
-// ---------------------------------------------------------------
+
 const getAllStudents = async (req, res) => {
   try {
     let students;
 
     if (req.user.role === "admin") {
-      // Admin sees everyone, and we "populate" the teacher's name
-      // populate() replaces the assignedTeacher ID with the full User object
+   
       students = await Student.find().populate("assignedTeacher", "name email");
     } else {
       // Teacher only sees students assigned to them
@@ -29,9 +20,7 @@ const getAllStudents = async (req, res) => {
   }
 };
 
-// ---------------------------------------------------------------
-// POST /api/students — Add a new student (Admin only)
-// ---------------------------------------------------------------
+  
 const createStudent = async (req, res) => {
   try {
     const { name, rollNumber, className, assignedTeacher } = req.body;
@@ -55,9 +44,7 @@ const createStudent = async (req, res) => {
   }
 };
 
-// ---------------------------------------------------------------
-// PUT /api/students/:id — Update student details (Admin only)
-// ---------------------------------------------------------------
+
 const updateStudent = async (req, res) => {
   try {
     const { name, rollNumber, className, assignedTeacher } = req.body;
@@ -82,9 +69,7 @@ const updateStudent = async (req, res) => {
   }
 };
 
-// ---------------------------------------------------------------
-// DELETE /api/students/:id — Delete a student (Admin only)
-// ---------------------------------------------------------------
+
 const deleteStudent = async (req, res) => {
   try {
     const student = await Student.findById(req.params.id);

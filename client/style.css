@@ -1,113 +1,85 @@
-/* ================================================================
-   style.css — ONLY VISUAL STYLING LIVES HERE
-   This file controls HOW everything LOOKS.
-   It does not contain any logic or HTML structure.
-
-   CSS works by targeting HTML elements using "selectors"
-   and applying visual properties to them.
-
-   Example:
-   nav {               ← selector (targets the <nav> element)
-     background: blue; ← property: value
-   }
-================================================================ */
 
 
-/* ----------------------------------------------------------------
-   RESET & BASE STYLES
-   Browsers add their own default margins and padding to elements.
-   We reset them all to zero so our design starts from a clean slate.
----------------------------------------------------------------- */
 * {
-  margin: 0;        /* Remove all default outer spacing */
-  padding: 0;       /* Remove all default inner spacing */
-  box-sizing: border-box; /* Makes width/height calculations include padding */
+  margin: 0;       
+  padding: 0;   
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif; /* Default font for entire page */
-  background: #f0f4f8;                 /* Light gray-blue background */
-  color: #2d3748;                      /* Dark gray default text color */
-  min-height: 100vh;                   /* Page is at least full screen height */
+  font-family: 'Segoe UI', sans-serif; 
+  background: #f0f4f8;                
+  color: #2d3748;                     
+  min-height: 100vh;                 
 }
 
 
-/* ----------------------------------------------------------------
-   NAVBAR STYLES
-   The top blue bar that shows the app name and logout button
----------------------------------------------------------------- */
+
+
 nav {
-  background: #2b6cb0;           /* Blue background */
+  background: #2b6cb0;           
   color: white;
-  padding: 0 24px;               /* Left and right inner spacing */
-  display: flex;                 /* Arrange children in a row */
-  justify-content: space-between;/* Push brand to left, buttons to right */
-  align-items: center;           /* Vertically center all items */
+  padding: 0 24px;             
+  display: flex;                 
+  justify-content: space-between;
+  align-items: center;           
   height: 56px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Subtle shadow below navbar */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
 }
 
 nav .brand {
   font-size: 18px;
-  font-weight: 700;    /* Bold */
+  font-weight: 700;    
   letter-spacing: 0.5px;
 }
 
 nav .nav-right {
   display: flex;
   align-items: center;
-  gap: 12px;           /* Space between items */
+  gap: 12px;          
 }
 
 nav .user-info {
   font-size: 14px;
-  opacity: 0.9;        /* Slightly transparent */
-}
+  opacity: 0.9;       
 
 nav button {
-  background: rgba(255,255,255,0.2); /* Semi-transparent white */
+  background: rgba(255,255,255,0.2); 
   border: 1px solid rgba(255,255,255,0.4);
   color: white;
   padding: 6px 14px;
   border-radius: 6px;
-  cursor: pointer;     /* Show hand cursor on hover */
+  cursor: pointer;    
   font-size: 13px;
 }
 
 nav button:hover {
-  background: rgba(255,255,255,0.3); /* Slightly brighter on hover */
+  background: rgba(255,255,255,0.3);
 }
 
 
-/* ----------------------------------------------------------------
-   APP LAYOUT
-   The main layout after login: sidebar on left, content on right
-   display: flex makes them sit side by side
----------------------------------------------------------------- */
+
 .app-layout {
   display: flex;
-  min-height: calc(100vh - 56px); /* Full height minus navbar height */
+  min-height: calc(100vh - 56px); 
 }
 
 
-/* ----------------------------------------------------------------
-   SIDEBAR STYLES
-   The dark blue left navigation panel
----------------------------------------------------------------- */
+
 aside {
   width: 220px;
-  background: #1a365d; /* Darker blue than navbar */
+  background: #1a365d; 
   padding: 20px 0;
-  flex-shrink: 0;      /* Don't shrink even if space is tight */
+  flex-shrink: 0;      
 }
 
 aside .menu-item {
   padding: 12px 24px;
-  color: #bee3f8;              /* Light blue text */
+  color: #bee3f8;             
   cursor: pointer;
   font-size: 14px;
-  border-left: 3px solid transparent; /* Invisible left border (shows on active) */
-  transition: all 0.2s;        /* Smooth animation on hover */
+  border-left: 3px solid transparent; 
+  transition: all 0.2s;       
 }
 
 aside .menu-item:hover {
@@ -115,47 +87,37 @@ aside .menu-item:hover {
   color: white;
 }
 
-/* When JavaScript adds class "active" to a menu item */
+
 aside .menu-item.active {
   background: rgba(255,255,255,0.12);
   color: white;
-  border-left-color: #63b3ed; /* Blue left border appears */
+  border-left-color: #63b3ed;
   font-weight: 600;
 }
 
 
-/* ----------------------------------------------------------------
-   MAIN CONTENT AREA
-   The white area on the right where pages are displayed
----------------------------------------------------------------- */
+
 main {
-  flex: 1;          /* Take up all remaining width */
+  flex: 1;        
   padding: 28px;
-  overflow-y: auto; /* Add scroll if content is too tall */
+  overflow-y: auto; 
 }
 
 
-/* ----------------------------------------------------------------
-   PAGE VISIBILITY
-   All pages are hidden by default.
-   JavaScript adds class "active" to show only the current page.
----------------------------------------------------------------- */
+
 .page {
-  display: none; /* Hidden */
+  display: none; 
 }
 
 .page.active {
-  display: block; /* Visible */
+  display: block; 
 }
 
 
-/* ----------------------------------------------------------------
-   PAGE HEADER
-   The title + action button row at the top of each page
----------------------------------------------------------------- */
+
 .page-header {
   display: flex;
-  justify-content: space-between; /* Title left, button right */
+  justify-content: space-between; 
   align-items: center;
   margin-bottom: 24px;
 }
@@ -167,15 +129,11 @@ main {
 }
 
 
-/* ----------------------------------------------------------------
-   DASHBOARD STATS GRID
-   The row of number cards (Total Teachers, Students, etc.)
----------------------------------------------------------------- */
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  /* auto-fit = fill as many columns as possible
-     minmax(180px, 1fr) = each column is at least 180px, max equal share */
+
   gap: 16px;
   margin-bottom: 28px;
 }
@@ -196,14 +154,12 @@ main {
 
 .stat-card .stat-label {
   font-size: 13px;
-  color: #718096; /* Muted gray */
+  color: #718096;
   margin-top: 4px;
 }
 
 
-/* ----------------------------------------------------------------
-   WELCOME CARD (Dashboard bottom section)
----------------------------------------------------------------- */
+
 .welcome-title {
   padding: 16px 20px;
   font-weight: 700;
@@ -215,33 +171,30 @@ main {
   padding: 20px;
   color: #718096;
   font-size: 14px;
-  line-height: 1.8; /* Comfortable line spacing */
+  line-height: 1.8; 
 }
 
 
-/* ----------------------------------------------------------------
-   TABLE CARD
-   White card that wraps all tables
----------------------------------------------------------------- */
+
 .table-card {
   background: white;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  overflow: hidden; /* Clips rounded corners on table edges */
+  overflow: hidden; 
 }
 
 table {
   width: 100%;
-  border-collapse: collapse; /* Remove double borders between cells */
+  border-collapse: collapse;
 }
 
 th {
-  background: #ebf8ff;        /* Light blue header background */
+  background: #ebf8ff;       
   padding: 12px 16px;
   text-align: left;
   font-size: 12px;
   font-weight: 700;
-  text-transform: uppercase;  /* ALL CAPS header text */
+  text-transform: uppercase;  
   color: #2c5282;
   letter-spacing: 0.5px;
 }
@@ -249,20 +202,15 @@ th {
 td {
   padding: 12px 16px;
   font-size: 14px;
-  border-top: 1px solid #e2e8f0; /* Thin line between rows */
+  border-top: 1px solid #e2e8f0;
 }
 
 tr:hover td {
-  background: #f7fafc; /* Light highlight on row hover */
+  background: #f7fafc; 
 }
 
 
-/* ----------------------------------------------------------------
-   BUTTONS
-   Reusable button styles using class combinations
-   Example: <button class="btn btn-primary"> gives a blue button
-            <button class="btn btn-sm"> gives a smaller button
----------------------------------------------------------------- */
+
 .btn {
   padding: 8px 16px;
   border: none;
@@ -270,18 +218,18 @@ tr:hover td {
   cursor: pointer;
   font-size: 13px;
   font-weight: 600;
-  transition: opacity 0.2s; /* Smooth fade on hover */
+  transition: opacity 0.2s; 
 }
 
 .btn:hover {
-  opacity: 0.85; /* Slightly transparent on hover */
+  opacity: 0.85;
 }
 
-.btn-primary { background: #2b6cb0; color: white; }  /* Blue */
-.btn-success { background: #38a169; color: white; }  /* Green */
-.btn-danger  { background: #e53e3e; color: white; }  /* Red */
-.btn-warning { background: #d69e2e; color: white; }  /* Yellow */
-.btn-cancel  { background: #e2e8f0; color: #2d3748; }/* Gray */
+.btn-primary { background: #2b6cb0; color: white; }  
+.btn-success { background: #38a169; color: white; }  
+.btn-danger  { background: #e53e3e; color: white; }  
+.btn-warning { background: #d69e2e; color: white; }  
+.btn-cancel  { background: #e2e8f0; color: #2d3748; }
 
 .btn-sm {
   padding: 4px 10px;
@@ -289,40 +237,33 @@ tr:hover td {
 }
 
 
-/* ----------------------------------------------------------------
-   BADGES
-   Small colored pills used for labels like "Present", "Absent"
----------------------------------------------------------------- */
+
 .badge {
   display: inline-block;
   padding: 2px 10px;
-  border-radius: 999px; /* Fully rounded pill shape */
+  border-radius: 999px;
   font-size: 11px;
   font-weight: 700;
 }
 
-.badge-present { background: #c6f6d5; color: #276749; } /* Green */
-.badge-absent  { background: #fed7d7; color: #9b2c2c; } /* Red */
-.badge-admin   { background: #bee3f8; color: #2c5282; } /* Blue */
-.badge-teacher { background: #fefcbf; color: #744210; } /* Yellow */
+.badge-present { background: #c6f6d5; color: #276749; } 
+.badge-absent  { background: #fed7d7; color: #9b2c2c; } 
+.badge-admin   { background: #bee3f8; color: #2c5282; } 
+.badge-teacher { background: #fefcbf; color: #744210; } 
 
 
-/* ----------------------------------------------------------------
-   MODAL (popup dialog)
-   The overlay darkens the background.
-   The modal box sits centered on top.
----------------------------------------------------------------- */
+
 .modal-overlay {
-  display: none;           /* Hidden by default */
-  position: fixed;         /* Stays in place even when page scrolls */
-  inset: 0;                /* Covers entire screen (top/right/bottom/left = 0) */
-  background: rgba(0,0,0,0.5); /* Semi-transparent dark background */
-  z-index: 999;            /* Appears above everything else */
+  display: none;           
+  position: fixed;       
+  inset: 0;             
+  background: rgba(0,0,0,0.5);
+  z-index: 999;            
   justify-content: center;
   align-items: center;
 }
 
-/* When JavaScript adds class "open" → show the modal */
+
 .modal-overlay.open {
   display: flex;
 }
@@ -332,7 +273,7 @@ tr:hover td {
   border-radius: 12px;
   padding: 28px;
   width: 420px;
-  max-width: 90%;          /* On small screens, shrink to 90% width */
+  max-width: 90%;          
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
@@ -344,22 +285,19 @@ tr:hover td {
 
 .modal-actions {
   display: flex;
-  justify-content: flex-end; /* Buttons pushed to right */
+  justify-content: flex-end; 
   gap: 10px;
   margin-top: 20px;
 }
 
 
-/* ----------------------------------------------------------------
-   FORM FIELDS
-   Labels and input/select styling inside forms and modals
----------------------------------------------------------------- */
+
 .form-group {
   margin-bottom: 16px;
 }
 
 .form-group label {
-  display: block;      /* Label on its own line above the input */
+  display: block;     
   font-size: 13px;
   font-weight: 600;
   color: #4a5568;
@@ -373,32 +311,29 @@ tr:hover td {
   border: 1px solid #cbd5e0;
   border-radius: 6px;
   font-size: 14px;
-  outline: none;             /* Remove default blue browser outline */
-  transition: border 0.2s;  /* Smooth border color change on focus */
+  outline: none;          
+  transition: border 0.2s; 
 }
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #2b6cb0; /* Blue border when user clicks the input */
+  border-color: #2b6cb0;
 }
 
-/* Removes bottom margin when form-group is inside a flex row */
+
 .form-group.no-margin {
   margin: 0;
 }
 
 
-/* ----------------------------------------------------------------
-   LOGIN PAGE
-   Full screen centered login form
----------------------------------------------------------------- */
+
 #login-page {
   min-height: 100vh;
   display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center;     /* Vertically center */
+  justify-content: center; 
+  align-items: center;     
   background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-  /* Diagonal gradient from dark blue to medium blue */
+
 }
 
 .login-box {
@@ -424,17 +359,14 @@ tr:hover td {
 }
 
 .login-box .btn {
-  width: 100%;     /* Full width button */
+  width: 100%;    
   padding: 11px;
   font-size: 15px;
   margin-top: 8px;
 }
 
 
-/* ----------------------------------------------------------------
-   ALERT MESSAGES
-   Red (error) and green (success) notification boxes
----------------------------------------------------------------- */
+
 .alert {
   padding: 10px 16px;
   border-radius: 6px;
@@ -442,17 +374,15 @@ tr:hover td {
   margin-bottom: 16px;
 }
 
-.alert-error   { background: #fed7d7; color: #9b2c2c; } /* Red */
-.alert-success { background: #c6f6d5; color: #276749; } /* Green */
+.alert-error   { background: #fed7d7; color: #9b2c2c; } 
+.alert-success { background: #c6f6d5; color: #276749; } 
 
 
-/* ----------------------------------------------------------------
-   ATTENDANCE FORM
-   The list of students with Present/Absent radio buttons
----------------------------------------------------------------- */
+
+
 .attendance-grid {
   display: grid;
-  gap: 10px; /* Space between each student row */
+  gap: 10px; 
 }
 
 .attendance-row {
@@ -460,7 +390,7 @@ tr:hover td {
   border-radius: 8px;
   padding: 14px 16px;
   display: flex;
-  justify-content: space-between; /* Student info left, toggle right */
+  justify-content: space-between; 
   align-items: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
@@ -476,7 +406,7 @@ tr:hover td {
   margin-top: 2px;
 }
 
-/* The Present / Absent toggle buttons */
+
 .att-toggle {
   display: flex;
   gap: 8px;
@@ -494,12 +424,12 @@ tr:hover td {
   transition: all 0.15s;
 }
 
-/* Hide the actual radio button — we only show the styled label */
+
 .att-toggle input[type=radio] {
   display: none;
 }
 
-/* When "Present" radio is selected → turn label green */
+
 .att-toggle input[value="Present"]:checked + span {
   background: #c6f6d5;
   color: #276749;
@@ -507,7 +437,7 @@ tr:hover td {
   padding: 3px 10px;
 }
 
-/* When "Absent" radio is selected → turn label red */
+
 .att-toggle input[value="Absent"]:checked + span {
   background: #fed7d7;
   color: #9b2c2c;
@@ -516,10 +446,7 @@ tr:hover td {
 }
 
 
-/* ----------------------------------------------------------------
-   DATE PICKER CARD
-   The white card with date input + Load button
----------------------------------------------------------------- */
+
 .date-picker-card {
   background: white;
   border-radius: 10px;
@@ -532,7 +459,7 @@ tr:hover td {
   display: flex;
   gap: 12px;
   align-items: flex-end;
-  flex-wrap: wrap; /* Wrap to next line on small screens */
+  flex-wrap: wrap;
 }
 
 .date-input {
@@ -544,10 +471,7 @@ tr:hover td {
 }
 
 
-/* ----------------------------------------------------------------
-   REPORTS PAGE
-   Summary boxes and report table
----------------------------------------------------------------- */
+
 .report-summary {
   display: flex;
   gap: 16px;
@@ -577,12 +501,9 @@ tr:hover td {
 }
 
 
-/* ----------------------------------------------------------------
-   UTILITY CLASSES
-   Small reusable helpers
----------------------------------------------------------------- */
 
-/* Shown when a table has no data */
+
+
 .empty-state {
   text-align: center;
   padding: 48px;
@@ -590,7 +511,7 @@ tr:hover td {
   font-size: 15px;
 }
 
-/* Shown while data is being fetched from the server */
+
 .loading {
   text-align: center;
   padding: 40px;
@@ -598,12 +519,9 @@ tr:hover td {
 }
 
 
-/* ----------------------------------------------------------------
-   RESPONSIVE DESIGN
-   Adjustments for small screens (phones/tablets)
-   @media means: only apply these styles when screen is <= 640px wide
----------------------------------------------------------------- */
+
 @media (max-width: 640px) {
   aside  { width: 180px; }
   main   { padding: 16px; }
+}
 }

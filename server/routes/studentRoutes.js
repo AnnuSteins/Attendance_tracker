@@ -1,8 +1,3 @@
-// ============================================================
-// routes/studentRoutes.js — STUDENT CRUD URLS
-// GET: Both admin and teacher (but teacher sees only their students)
-// POST/PUT/DELETE: Admin only
-// ============================================================
 
 const express = require("express");
 const router = express.Router();

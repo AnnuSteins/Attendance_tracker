@@ -1,15 +1,8 @@
-// ============================================================
-// controllers/attendanceController.js — ATTENDANCE LOGIC
-// Teachers mark attendance. Both Admin & Teacher can view reports.
-// ============================================================
 
 const Attendance = require("../models/Attendance");
 const Student = require("../models/Student");
 
-// ---------------------------------------------------------------
-// POST /api/attendance/mark — Teacher marks attendance for a date
-// Expects body: { date: "2024-01-15", records: [{studentId, status}] }
-// ---------------------------------------------------------------
+
 const markAttendance = async (req, res) => {
   try {
     const { date, records } = req.body;
@@ -19,10 +12,9 @@ const markAttendance = async (req, res) => {
       return res.status(400).json({ message: "Date and records are required" });
     }
 
-    // Convert the date string to a Date object and normalize to midnight
-    // This ensures "2024-01-15T14:30:00" and "2024-01-15T09:00:00" are the SAME date
+
     const attendanceDate = new Date(date);
-    attendanceDate.setHours(0, 0, 0, 0); // Set to 00:00:00
+    attendanceDate.setHours(0, 0, 0, 0); 
 
     const results = [];
 
@@ -45,7 +37,7 @@ const markAttendance = async (req, res) => {
       },
       {
         upsert: true,             // Create if doesn't exist
-        returnDocument: 'after',  // ← New correct way (replaces `new: true`)
+        returnDocument: 'after', 
       }
     );
       results.push(attendance);
@@ -57,11 +49,7 @@ const markAttendance = async (req, res) => {
   }
 };
 
-// ---------------------------------------------------------------
-// GET /api/attendance — View attendance records
-// Admin sees all; Teacher sees only their students
-// Query params: ?studentId=xxx&date=2024-01-15&month=1&year=2024
-// ---------------------------------------------------------------
+
 const getAttendance = async (req, res) => {
   try {
     const { studentId, date, month, year } = req.query;
@@ -92,14 +80,14 @@ const getAttendance = async (req, res) => {
       // Get all student IDs assigned to this teacher
       const myStudents = await Student.find({ assignedTeacher: req.user._id }).select("_id");
       const myStudentIds = myStudents.map((s) => s._id);
-      filter.student = { $in: myStudentIds }; // $in = "any of these IDs"
+      filter.student = { $in: myStudentIds }; 
     }
 
     // Fetch records and fill in student name and teacher name
     const records = await Attendance.find(filter)
       .populate("student", "name rollNumber className")
       .populate("markedBy", "name")
-      .sort({ date: -1 }); // Newest first
+      .sort({ date: -1 });
 
     res.json(records);
   } catch (error) {
@@ -107,10 +95,7 @@ const getAttendance = async (req, res) => {
   }
 };
 
-// ---------------------------------------------------------------
-// GET /api/attendance/report/:studentId — Full report for one student
-// Shows total days, present count, absent count, and percentage
-// ---------------------------------------------------------------
+
 const getStudentReport = async (req, res) => {
   try {
     const { studentId } = req.params;
@@ -129,7 +114,7 @@ const getStudentReport = async (req, res) => {
     // Get all attendance records for this student
     const records = await Attendance.find({ student: studentId })
       .populate("student", "name rollNumber className")
-      .sort({ date: 1 }); // Oldest first for report
+      .sort({ date: 1 });
 
     // Calculate summary statistics
     const totalDays = records.length;
