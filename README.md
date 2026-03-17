@@ -4,7 +4,7 @@ A full-stack web application to manage students and track daily attendance with 
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 attendance-tracker/
@@ -41,7 +41,7 @@ attendance-tracker/
 ```
 
 
-## 🚀 Setup Instructions (Step by Step)
+##  Setup Instructions (Step by Step)
 
 ### Step 1 — Open the project in VS Code
 ```
@@ -82,7 +82,7 @@ npm install
 This downloads and installs all required packages:
 `express`, `mongoose`, `bcryptjs`, `jsonwebtoken`, `dotenv`, `cors`, `nodemon`
 
-> ⚠️ Always make sure your terminal is inside the `server/` folder.
+>  Always make sure your terminal is inside the `server/` folder.
 > Your terminal path should show: `...\attendance-tracker\server>`
 > If it shows `...\attendance-tracker>` run `cd server` first.
 
@@ -104,7 +104,7 @@ service that can start automatically. Check this first before doing anything els
 
 | Status             | What to do |
 |--------|-----------|
-| **Running**        | ✅ MongoDB is already running — skip to Step 5 |
+| **Running**        |  MongoDB is already running — skip to Step 5 |
 | **Stopped**        | Right-click → click **Start** → wait a moment → skip to Step 5 |
 | **Not in list**    | MongoDB is not installed — follow Method 2 below |
 
@@ -215,12 +215,12 @@ Open `client/index.html` in your browser:
 - Double-click `index.html` in File Explorer
 - The app opens as a local file in your browser
 
-> ⚠️ Both the backend server (Step 6) and the browser page (Step 7)
+>  Both the backend server (Step 6) and the browser page (Step 7)
 > must be open at the same time for the app to work.
 
 ---
 
-## 🔑 Default Login Credentials
+##  Default Login Credentials
 
 After running `seed.js` in Step 5, use these credentials to log in:
 
@@ -303,7 +303,7 @@ UNIQUE INDEX on (student + date)
 
 ---
 
-## 🔐 How Security Works
+##  How Security Works
 
 1. **Password Encryption** — bcryptjs scrambles passwords before saving. The original password is never stored anywhere. Even if the database is hacked, passwords cannot be read.
 
@@ -319,7 +319,7 @@ UNIQUE INDEX on (student + date)
 
 ---
 
-## 💡 How to Use the App
+##  How to Use the App
 
 ### As Admin:
 1. Login with `admin@school.com` / `admin123`
@@ -335,60 +335,7 @@ UNIQUE INDEX on (student + date)
 
 ---
 
-## 🛠️ Errors Encountered During Development & Their Fixes
 
-These are real errors that came up while building and running this project:
-
----
-
-### ❌ Error 1 — PowerShell blocks npm
-```
-npm : File cannot be loaded because running scripts is disabled on this system.
-```
-**Cause:** Windows PowerShell's execution policy blocks scripts by default.
-
-**Fix:** Run this in PowerShell as Administrator:
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-```
-
----
-
-### ❌ Error 2 — mongod not recognized
-```
-mongod : The term 'mongod' is not recognized as the name of a cmdlet
-```
-**Cause:** MongoDB is not installed or not added to system PATH.
-
-**Full fix steps:**
-1. Press `Windows + R` → type `services.msc` → Enter
-2. Look for **MongoDB Server** in the services list
-3. If **Running** → MongoDB works fine, no need to run `mongod` manually
-4. If **Stopped** → right-click → **Start**
-5. If **not listed** → MongoDB is not installed — follow Setup Step 4 above
-
----
-
-### ❌ Error 3 — seed.js file not found
-```
-Error: Cannot find module '...\attendance-tracker\seed.js'
-```
-**Cause:** You ran `node seed.js` from the wrong folder. `seed.js` is inside `server/`.
-
-**Fix:**
-```bash
-cd server
-node seed.js
-```
-
----
-
-### ❌ Error 4 — seed.js shows no output
-**Cause:** MongoDB is not running so the database connection fails silently.
-
-**Fix:** Start MongoDB first (see Setup Step 4), then run `node seed.js` again.
-
----
 
 
 ## 🧰 Tech Stack
