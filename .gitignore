@@ -1,0 +1,16 @@
+# Dependencies — never upload, npm install recreates this
+node_modules/
+
+# Secret settings — never upload
+.env
+
+# Windows system files
+Thumbs.db
+desktop.ini
+
+# VS Code settings
+.vscode/
+
+# npm log files
+npm-debug.log
+npm-debug.log.*
